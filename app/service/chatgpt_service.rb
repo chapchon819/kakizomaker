@@ -1,6 +1,7 @@
 class ChatgptService
     require 'openai'
     require 'httparty'
+    require 'open-uri'
 
     def initialize
       @openai = OpenAI::Client.new(access_token: Rails.application.credentials[:chatgpt_api_key])
@@ -23,7 +24,7 @@ class ChatgptService
     def generate_image_with_dalle3(prompt)
       body = {
         model: "dall-e-3",
-        prompt: prompt,
+        prompt: "japanese calligraphy, #{prompt}",
         n: 1,
         size: "1024x1024"
         }
@@ -40,7 +41,8 @@ class ChatgptService
     end
 
     def self.download_image(prompt)
-      image_url = generate_image(prompt)
+      service_instance = new
+      image_url = service_instance.generate_image_with_dalle3(prompt)
       timestamp = Time.now.strftime('%Y%m%d_%H%M%S')
       file_name = "#{timestamp}.png"
       file_path = Rails.root.join('public', 'generated_images', file_name)
