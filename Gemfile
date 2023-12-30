@@ -44,6 +44,7 @@ gem 'bootstrap', '~> 5.3.2'
 gem 'sassc-rails'
 gem 'sassc', '~> 2.4'
 gem "ruby-openai"
+gem 'httparty'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
