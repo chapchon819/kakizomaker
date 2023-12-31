@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'staticpages/top'
-  root "images#new"
+  root to: 'images#top'
+  get 'create_image', to: 'images#create_image'
   resources :images
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

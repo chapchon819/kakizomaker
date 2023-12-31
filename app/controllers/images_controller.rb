@@ -1,10 +1,25 @@
 class ImagesController < ApplicationController
+    before_action :set_token, only: :create_image
     def new
         @image = Image.new
     end
 
+
+    def create_image
+        @q = params[:query]
+        @client = OpenAI::Client.new(access_token: @api_key)
+        response = @client.images.generate(
+          parameters: { 
+            model: "dall-e-3",
+            prompt: "#{@q}"
+          }
+        )
+        @image_url = response.dig("data", 0, "url")
+    end
+
+=begin
     def create
-        prompt = "purpose：書き初め風の画像を生成したい, detail：#{params[:image][:prompt]}, constraints：subtitles"
+        prompt = "purpose：, detail：#{params[:image][:prompt]}, constraints：subtitles"
         image_filename = ChatgptService.download_image(params[:image][:prompt])
 
         @image = Image.new(image_params)
@@ -17,6 +32,7 @@ class ImagesController < ApplicationController
             render :new, status: :unprocessable_entity
         end
     end
+=end
 
     def index
         @images = Image.all
@@ -24,7 +40,7 @@ class ImagesController < ApplicationController
 
     private
 
-    def image_params
-        params.require(:image).permit(:image_url, :prompt)
+    def set_token
+        @api_key = Rails.application.credentials.dig(:openai, :api_key)
     end
 end

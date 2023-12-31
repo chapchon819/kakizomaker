@@ -1,11 +1,12 @@
 <% @images.each do |image| %>
 <div class="col-sm-12 col-lg-4 mb-3">
     <div class="card-img-top">
-    <%= image_tag("/generated_images/#{image.image_url}") %>
+    <%= image_tag("/generated_images/#{image.image_url}")%>
+
       <div class="card-body">
         <div class="d-flex">
           <h4 class="card-title">
-            <%= image.prompt %>
+            #<%= image.prompt %>
           </h4>
         </div>
     </div>
