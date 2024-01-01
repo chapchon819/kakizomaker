@@ -15,6 +15,7 @@ class ImagesController < ApplicationController
           }
         )
         @image_url = response.dig("data", 0, "url")
+        @image = ERB::Util.url_encode(@image_url)
     end
 
 =begin
