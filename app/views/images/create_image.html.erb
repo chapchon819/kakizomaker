@@ -2,11 +2,11 @@
   <h3>書き初めテーマ： <%= @q %> </h3>
   <div class="twitter">
    #<%= link_to "https://twitter.com/share?url=https://kakizomaker.onrender.com/create_image?query=#{@q}"&commit=#{@image_url}"
-      text=書き初めが完成しました！
-      %0aテーマ：#{@q}
-      %0a：#{@image_url}",
-       target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
-   <span class="fab fa-twitter"></span>Xでシェアする
+      #text=書き初めが完成しました！
+      #%0aテーマ：#{@q}
+      #%0a：#{@image_url}",
+       #target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
+   #<span class="fab fa-twitter"></span>Xでシェアする
    #<% end %>
 </div>
   <%= image_tag @image_url, :size =>'500x500'%>
