@@ -11,7 +11,7 @@ class ImagesController < ApplicationController
         response = @client.images.generate(
           parameters: { 
             model: "dall-e-3",
-            prompt: "書き初め風に#{@q}を英語で生成してください"
+            prompt: "Add the letters: #{@q} in English on Washi style: Japanese calligraphy"
           }
         )
         @image_url = response.dig("data", 0, "url")
