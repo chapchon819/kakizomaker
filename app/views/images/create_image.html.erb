@@ -1,12 +1,12 @@
 <div class='col-md-10 col-lg-8 mx-auto text-center'>
   <h3>書き初めテーマ： <%= @q %> </h3>
   <div>
-  <button type="button" class="btn-primary">
+  <button type="button" class="btn btn-primary">
    <%= link_to "https://twitter.com/share?url=https://kakizomaker.onrender.com/
    %0a書き初めテーマ：#{@q}
-   %0a#{@image}",
+   %0a作品：#{@image}",
     target: '_blank', data: { toggle: "tooltip", placement: "bottom" } do %>
-    <span class="fab fa-twitter"></span>Xにシェア
+    <span class="fab fa-twitter"></span>Xにシェアする
    <% end %>
   </button>
   </div>
