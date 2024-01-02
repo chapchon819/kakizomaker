@@ -19,3 +19,15 @@ footer{
     position: absolute;/*←絶対位置*/
     bottom: 0; /*下に固定*/
 }
+
+.btn-primary {
+    background: #AF8A45; //ボタンの背景色
+    color: white; //ボタンのテキストの色
+    border-color: #AF8A45;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #FFAAA5;
+    border-color: #FFAAA5;
+  }
