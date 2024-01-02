@@ -8,7 +8,7 @@
     background-size: cover;
 }
 
-@media (max-width: 430px) {
+@media (max-width: 500px) {
     .background-class {
         background-image: image-url('background_ipone.png');
         background-repeat: no-repeat;
@@ -16,10 +16,10 @@
         background-size: cover;
     }
     .top-image {
-        width: 75%;
+        size: 192x108;
     }
     .form-group {
-        
+        width: 75%;
     }
 }
 
