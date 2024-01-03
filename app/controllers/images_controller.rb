@@ -4,17 +4,42 @@ class ImagesController < ApplicationController
         @image = Image.new
     end
 
+=begin
+    def t_chat
+        @q = params[:query]
+        @client = OpenAI::Client.new(access_token: @api_key)
+        response = @client.chat(
+          parameters: {
+            model: "gpt-3.5-turbo",
+            messages: [{ role: "system", content: "入力文を英語に翻訳してください" }, { role: "user", content: "#{@q}"} ],
+            temperature: 0.7, # 応答のランダム性を指定
+            max_tokens: 200,  # 応答の長さを指定
+          },
+          )
+        @t = response['choices'].first['message']['content']
+      end
+=end
 
     def create_image
         @q = params[:query]
         @client = OpenAI::Client.new(access_token: @api_key)
-        response = @client.images.generate(
+        response = @client.chat(
+          parameters: {
+            model: "gpt-3.5-turbo",
+            messages: [{ role: "system", content: "入力文を英語に翻訳してください" }, { role: "user", content: "#{@q}"} ],
+            temperature: 0.7, # 応答のランダム性を指定
+            max_tokens: 200,  # 応答の長さを指定
+          },
+          )
+        @t = response['choices'].first['message']['content']
+
+        response2 = @client.images.generate(
           parameters: { 
             model: "dall-e-3",
-            prompt: "Add the letters: #{@q} in English on Washi style: brush pen only English. When you use other than English, Many people will be suffer"
+            prompt: "Add the letters: #{@t} on Washi style: brush pen only English. When you use other than English, Many people will be suffer"
           }
         )
-        @image_url = response.dig("data", 0, "url")
+        @image_url = response2.dig("data", 0, "url")
         @image = ERB::Util.url_encode(@image_url)
     end
 

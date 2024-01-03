@@ -3,24 +3,31 @@ class ChatgptService
     require 'httparty'
     require 'open-uri'
 
+
     def initialize
       @openai = OpenAI::Client.new(access_token: Rails.application.credentials[:chatgpt_api_key])
     end
   
-=begin
+
     def chat(prompt)
-      response = @openai.chat(
+      @client = OpenAI::Client.new(access_token: @api_key)
+      response = @client.chat(
         parameters: {
           model: "gpt-3.5-turbo", # Required. # 使用するGPT-3のエンジンを指定
-          messages: [{ role: "system", content: "You are a helpful assistant. response to japanese" }, { role: "user", content: prompt }],
+          messages: [{ role: "system", content: "translate into English." }, { role: "user", content: prompt }],
           temperature: 0.7, # 応答のランダム性を指定
           max_tokens: 200,  # 応答の長さを指定
         },
         )
       response['choices'].first['message']['content']
     end
-=end
 
+    def set_token
+      @api_key = Rails.application.credentials.dig(:openai, :api_key)
+  end
+  end
+
+=begin
     def generate_image_with_dalle3(prompt)
       body = {
         model: "dall-e-3",
@@ -58,4 +65,5 @@ class ChatgptService
       end
     end
   end
+=end
 
