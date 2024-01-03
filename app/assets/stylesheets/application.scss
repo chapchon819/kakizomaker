@@ -9,9 +9,8 @@
     background-size: cover;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 490px) {
     .background-class {
-        width: 100%;
         background-image: image-url('background_ipone.png');
         background-repeat: no-repeat;
         background-position: center;
