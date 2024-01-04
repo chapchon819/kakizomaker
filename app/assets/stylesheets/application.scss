@@ -15,16 +15,20 @@
     padding: 30px 15px;
   }
 
+.form-group1 {
+    ;
+}
+
 @media (max-width: 520px) {
     .background-class {
         background-image: image-url('background_ipone.png')!important;
         background-position: center!important;
         background-size: cover!important;
     }
-    .top-image {
+    .img-responsive {
         size: 192x108!important;
     }
-    .form-group {
+    .form-group1 {
         width: 75%!important;
     }
 }
