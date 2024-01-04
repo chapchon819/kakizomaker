@@ -15,8 +15,9 @@
     padding: 30px 15px;
   }
 
-.form-group1 {
-    ;
+.img-responsive {
+    height: 432px;
+    width: 768px;
 }
 
 @media (max-width: 520px) {
@@ -26,10 +27,15 @@
         background-size: cover!important;
     }
     .img-responsive {
-        size: 192x108!important;
+        height: 108px;
+        width: 192;
     }
     .form-group1 {
         width: 75%!important;
+    }
+
+    input[type="text"] {
+        width: 75%;
     }
 }
 
