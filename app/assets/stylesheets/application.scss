@@ -18,6 +18,8 @@
 .img-responsive {
     height: 432px;
     width: 768px;
+    display: block;
+    margin:auto;
 }
 
 @media (max-width: 520px) {
