@@ -2,7 +2,9 @@
         <div class='row'>
         <div class='mx-auto text-center custom-container'>
             <%= form_with(url: create_image_path, method: :get) do |form| %>
-            <%= image_tag('top5.png', size: '768x432', class: 'img-responsive')%>
+            <div class='img-responsive'>
+            <%= image_tag('top5.png', size: '768x432')%>
+            </div>
             <h3>書き初めが英語で生成されるよ♪</h3>
             <p>※うまく生成されない場合は何度か試してみてください。</p>
             <br>

@@ -26,16 +26,19 @@
         background-position: center!important;
         background-size: cover!important;
     }
+
+    img {
+        max-width: 100%;
+        height: auto;
+      }
+
     .img-responsive {
-        height: 108px;
-        width: 192;
-    }
-    .form-group1 {
-        width: 75%!important;
+        width: 60%; /* 幅を設定 */
+        margin: 0 auto;
     }
 
     input[type="text"] {
-        width: 75%;
+        width: 80%;
     }
 }
 
