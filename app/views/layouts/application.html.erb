@@ -19,7 +19,9 @@
   <body class="background-class">
     <%= render 'shared/header' %>
     <%= render 'shared/flash_message' %>
+    <div class="base-container">
     <%= yield %>
+    </div>
     <%= render 'shared/footer' %>
   </body>
 </html>
