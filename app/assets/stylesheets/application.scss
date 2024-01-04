@@ -32,12 +32,12 @@
     img {
         max-width: 100%;
         height: auto;
-        vertical-align:top;
       }
 
     .img-responsive {
         width: 90%; /* 幅を設定 */
         margin: 0 auto;
+        display: block;
     }
 
     input[type="text"] {
